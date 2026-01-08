@@ -1,10 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-white">
-        OnlyKnives 🔪
-      </h1>
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-black">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
