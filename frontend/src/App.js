@@ -1,19 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
+import Knives from "./pages/Knives";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-black">
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/knives" element={<Knives />} />
+      </Routes>
     </BrowserRouter>
   );
 }
