@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="flex gap-6">
         <Link to="/" className="hover:text-accent2 transition">Home</Link>
         <Link to="/shop" className="hover:text-accent2 transition">Become a member</Link>
-        <Link to="/login" className="hover:text-accent2 transition">Apply as a smith</Link>
+        <Link to="/smithsignup" className="hover:text-accent2 transition">Apply as a smith</Link>
          <Link to="/login" className="hover:text-accent2 transition">Login</Link>
 
       </div>
