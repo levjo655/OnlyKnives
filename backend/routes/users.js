@@ -1,13 +1,25 @@
+// routes/users.js
 import express from "express";
 import bcrypt from "bcrypt";
 import pool from "../db.js";
 
 const router = express.Router();
 
-router.post(`/`, async (req, res) => {
+// in users.js or a new test route
+router.get("/health", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    res.json({ status: "db ok", time: result.rows[0].now });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "db connection failed" });
+  }
+});
+
+router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
-  console.log("Received body:", req.body);
-  res.status(201).json({ message: "Router works!", body: req.body });
+
+  console.log("Received body:", req.body); // ← keep this for debugging
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: "All fields are required" });
@@ -23,12 +35,15 @@ router.post(`/`, async (req, res) => {
       [name, email, hashedPassword],
     );
 
+    // Success → return the newly created user (without password!)
     res.status(201).json(result.rows[0]);
   } catch (err) {
     if (err.code === "23505") {
+      // unique violation (email exists)
       return res.status(409).json({ error: "Email already exists" });
     }
-    console.error(err);
+
+    console.error("Database error:", err.message, err.stack);
     res.status(500).json({ error: "Server error" });
   }
 });

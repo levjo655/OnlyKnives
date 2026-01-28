@@ -6,4 +6,7 @@ app.use(express.json());
 
 app.use("/users", userRouter);
 
-app.listen(4000, () => console.log("Server running on port 4000"));
+const PORT = 23456;
+app.listen(PORT, "127.0.0.1", () => {
+  console.log(`🚀 Express listening on 127.0.0.1:${PORT}`);
+});
