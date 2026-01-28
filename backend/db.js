@@ -1,30 +1,32 @@
-import 'dotenv/config';  // loads .env
-import { Pool } from 'pg';
+import "dotenv/config";
+import pkg from "pg";
+const { Pool } = pkg;
 
 const pool = new Pool({
   host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
+  port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: false }
+  ssl: {
+    require: false,
+    rejectUnauthorized: false,
+  },
+  connectionTimeoutMillis: 5000,
 });
 
-// Test connection
-pool.connect((err, client, release) => {
-  if (err) {
-    return console.error('Fel vid anslutning:', err.stack);
+async function testConnection() {
+  try {
+    const res = await pool.query("SELECT NOW()");
+    console.log("✅ Connected! DB time:", res.rows[0].now);
+    process.exit(0);
+  } catch (err) {
+    console.error("Connection failed:", err.message);
+    console.error(err);
+    process.exit(1);
   }
-  console.log('Ansluten till PostgreSQL RDS!');
-  release();
-});
-
-// Example: Async query
-async function testaQuery() {
-  const res = await pool.query('SELECT NOW()');
-  console.log('Aktuell tid från DB:', res.rows[0]);
 }
 
-testaQuery();
+testConnection();
 
 export default pool;
