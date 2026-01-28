@@ -1,9 +1,8 @@
 import React from "react";
-import { Navbar, Footer, KnifeCard } from '../components';
+import { KnifeCard } from '../components';
 
 const Knives = () => (
   <div className="bg-bg min-h-screen text-primaryText flex flex-col">
-      <Navbar />
 
       {/* Page content */}
       <div className="max-w-5xl mx-auto p-10 flex-grow">
@@ -23,8 +22,6 @@ const Knives = () => (
           <KnifeCard name="knife name 3" />
         </div>
       </div>
-
-      <Footer />
     </div>
 );
 
