@@ -1,11 +1,9 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ProductCard from "../components/ProductCard";
+import React from "react";
+import { Navbar, Footer, ProductCard } from '../components';
 import demoKnife from "../images/demo_knife.jpg";
 
-export default function Home() {
-  return (
-    <div className="bg-bg min-h-screen text-primaryText">
+const Home = () => (
+  <div className="bg-bg min-h-screen text-primaryText">
       <Navbar />
 
       {/* Hero */}
@@ -64,5 +62,6 @@ export default function Home() {
 
       <Footer />
     </div>
-  );
-}
+);
+
+export default Home;

@@ -1,10 +1,9 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { Navbar, Footer } from '../components';
 
-export default function SmithSignup() {
-  return (
-    <>
+const SmithSignup = () => (
+  <>
       <div className="bg-bg min-h-screen text-primaryText">
         <Navbar />
         <div className="bg-gray-200 p-8 rounded-lg max-w-4xl mx-auto">
@@ -62,5 +61,6 @@ export default function SmithSignup() {
       </div>
       <Footer />
     </>
-  );
-}
+);
+
+export default SmithSignup;

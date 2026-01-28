@@ -1,5 +1,6 @@
-import Navbar from "../components/Navbar"
+import React from "react";
+import { Navbar } from '../components';
 
-export default function Steels (){
-    return <div></div>
-}
+const Steels = () => <div></div>;
+
+export default Steels;

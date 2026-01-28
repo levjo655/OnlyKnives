@@ -1,10 +1,8 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import KnifeCard from "../components/KnifeCard";
+import React from "react";
+import { Navbar, Footer, KnifeCard } from '../components';
 
-export default function Knives() {
-  return (
-    <div className="bg-bg min-h-screen text-primaryText flex flex-col">
+const Knives = () => (
+  <div className="bg-bg min-h-screen text-primaryText flex flex-col">
       <Navbar />
 
       {/* Page content */}
@@ -28,5 +26,6 @@ export default function Knives() {
 
       <Footer />
     </div>
-  );
-}
+);
+
+export default Knives;
