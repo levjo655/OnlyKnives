@@ -16,7 +16,7 @@ export default function Card({
   
   return (
     <div
-      className={`bg-white rounded-lg shadow-md ${paddingSizes[padding]} ${hoverStyles} ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 ${paddingSizes[padding]} ${hoverStyles} ${className}`}
       {...props}
     >
       {children}

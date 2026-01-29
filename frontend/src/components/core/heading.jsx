@@ -15,7 +15,7 @@ export default function Heading({
     "3xl": "text-6xl",
   };
   
-  const baseStyles = "font-semibold text-gray-900";
+  const baseStyles = "font-semibold text-gray-900 dark:text-gray-100";
   
   const Component = as;
   

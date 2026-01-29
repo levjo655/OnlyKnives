@@ -11,7 +11,7 @@ import {
 import demoKnife from "../images/demo_knife.jpg";
 
 const Home = () => (
-  <div className="bg-bg min-h-screen text-primaryText">
+  <div className="bg-bg dark:bg-gray-900 min-h-screen text-primaryText dark:text-gray-100">
     {/* Hero Section */}
     <section className="relative py-20 md:py-32 overflow-hidden">
       <Container maxWidth="xl">
@@ -49,7 +49,7 @@ const Home = () => (
     </section>
 
     {/* Main Categories */}
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <Container maxWidth="xl">
         <div className="text-center mb-12">
           <Heading size="xl" className="mb-4">
@@ -115,7 +115,7 @@ const Home = () => (
     </section>
 
     {/* CTA Section */}
-    <section className="py-20 bg-gray-900 text-white">
+    <section className="py-20 bg-gray-900 dark:bg-gray-950 text-white">
       <Container maxWidth="lg">
         <Center fullScreen={false}>
           <div className="text-center space-y-6">
