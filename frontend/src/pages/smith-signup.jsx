@@ -1,12 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import React from "react";
 
-export default function SmithSignup() {
-  return (
-    <>
+const SmithSignup = () => (
+  <>
       <div className="bg-bg min-h-screen text-primaryText">
-        <Navbar />
         <div className="bg-gray-200 p-8 rounded-lg max-w-4xl mx-auto">
           <h2 className="text-xl font-bold mb-6 text-center">Apply as a smith form</h2>
           <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -60,7 +56,7 @@ export default function SmithSignup() {
           </form>
         </div>
       </div>
-      <Footer />
     </>
-  );
-}
+);
+
+export default SmithSignup;
