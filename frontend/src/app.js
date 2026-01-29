@@ -5,7 +5,7 @@ import { Navbar, Footer } from "./components";
 
 const App = () => (
   <BrowserRouter>
-  <Navbar />
+    <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/knives" element={<Knives />} />
