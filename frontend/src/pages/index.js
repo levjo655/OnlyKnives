@@ -9,4 +9,5 @@ export { default as SmithSignup } from './smith-signup';
 export { default as Smiths } from './smiths';
 export { default as Steels } from './steels';
 export { default as KnifePage } from './knife-page';
+export { default as ComponentShowcase } from './component-showcase';
 
