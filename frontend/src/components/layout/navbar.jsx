@@ -65,42 +65,40 @@ export const Navbar = () => {
 
           {/* Logo and desktop nav */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
-              <Link to="/" className="text-2xl font-bold text-white dark:text-blue-400">
+            <div className="flex shrink-0 items-center pl-12 sm:pl-0">
+              <Link to="/" className="text-xl sm:text-2xl font-bold text-white dark:text-blue-400">
                 OnlyKnives
               </Link>
             </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                      isActive(link.to)
-                        ? "bg-gray-900 dark:bg-gray-800 text-white"
-                        : "text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+            <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                    isActive(link.to)
+                      ? "bg-gray-900 dark:bg-gray-800 text-white"
+                      : "text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
           {/* Right side actions */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <Link
                 to="/smithsignup"
-                className="hidden sm:block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
+                className="hidden lg:block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
               >
                 Apply as a Smith
               </Link>
               <Link
                 to="/login"
-                className="hidden sm:block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
+                className="hidden md:block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white dark:text-gray-400 dark:hover:text-gray-300"
               >
                 Login
               </Link>
