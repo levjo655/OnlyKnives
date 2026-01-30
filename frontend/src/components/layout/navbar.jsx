@@ -66,7 +66,10 @@ export const Navbar = () => {
           {/* Logo and desktop nav */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center pl-12 sm:pl-0">
-              <Link to="/" className="text-xl sm:text-2xl font-bold text-white dark:text-blue-400">
+              <Link
+                to="/"
+                className="text-xl sm:text-2xl font-bold text-white dark:text-blue-400"
+              >
                 OnlyKnives
               </Link>
             </div>
@@ -146,4 +149,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
