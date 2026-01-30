@@ -11,9 +11,11 @@ export default function Card({
     md: "p-6",
     lg: "p-8",
   };
-  
-  const hoverStyles = hover ? "transition-shadow duration-200 hover:shadow-lg" : "";
-  
+
+  const hoverStyles = hover
+    ? "transition-shadow duration-200 hover:shadow-lg"
+    : "";
+
   return (
     <div
       className={`bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-900/50 ${paddingSizes[padding]} ${hoverStyles} ${className}`}
@@ -23,4 +25,3 @@ export default function Card({
     </div>
   );
 }
-

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  ProductCard, 
-  Container, 
-  Heading, 
-  Text, 
-  Button, 
-  Center 
+import {
+  ProductCard,
+  Container,
+  Heading,
+  Text,
+  Button,
+  Center,
 } from "../components";
 import demoKnife from "../images/demo_knife.jpg";
 
@@ -17,28 +17,32 @@ const Home = () => (
       <Container maxWidth="xl">
         <Center fullScreen={false}>
           <div className="text-center space-y-6">
-            <Heading 
-              as="h1" 
-              size="3xl" 
+            <Heading
+              as="h1"
+              size="3xl"
               className="text-5xl md:text-7xl font-bold mb-6 text-primaryText"
             >
               OnlyKnives
             </Heading>
-            <Text 
-              size="xl" 
-              color="muted" 
-              className="max-w-2xl mx-auto mb-8"
-            >
+            <Text size="xl" color="muted" className="max-w-2xl mx-auto mb-8">
               A curated marketplace of extraordinary craftsmanship
             </Text>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/knives">
-                <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
                   Explore Collection
                 </Button>
               </Link>
               <Link to="/smiths">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
                   Meet the Smiths
                 </Button>
               </Link>
@@ -123,16 +127,25 @@ const Home = () => (
               Ready to Start Your Collection?
             </Heading>
             <Text size="lg" color="light" className="max-w-xl mx-auto">
-              Join our community of knife enthusiasts and discover the finest handcrafted blades
+              Join our community of knife enthusiasts and discover the finest
+              handcrafted blades
             </Text>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/knives">
-                <Button variant="primary" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-white text-gray-900 hover:bg-gray-100"
+                >
                   Browse Collection
                 </Button>
               </Link>
               <Link to="/smithsignup">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-gray-900">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-gray-900"
+                >
                   Apply as a Smith
                 </Button>
               </Link>

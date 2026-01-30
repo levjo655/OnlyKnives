@@ -43,7 +43,7 @@ const ComponentShowcase = () => {
           <Heading size="xl" className="mb-6">
             Buttons
           </Heading>
-          
+
           <div className="space-y-6">
             <div>
               <Text weight="semibold" className="mb-3">
@@ -85,7 +85,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Button variant="primary" size="lg" onClick={handleClick}>
+              {`<Button variant="primary" size="lg" onClick={handleClick}>
   Click Me
 </Button>`}
             </pre>
@@ -132,11 +132,7 @@ const ComponentShowcase = () => {
               placeholder="Enter password"
             />
 
-            <Input
-              label="Disabled Input"
-              placeholder="Disabled"
-              disabled
-            />
+            <Input label="Disabled Input" placeholder="Disabled" disabled />
           </div>
 
           <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-md">
@@ -144,7 +140,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Input
+              {`<Input
   label="Email"
   type="email"
   placeholder="email@example.com"
@@ -169,13 +165,27 @@ const ComponentShowcase = () => {
                 Heading Sizes
               </Text>
               <div className="space-y-3">
-                <Heading size="3xl" as="h1">Heading 3XL (h1)</Heading>
-                <Heading size="2xl" as="h2">Heading 2XL (h2)</Heading>
-                <Heading size="xl" as="h2">Heading XL (h2)</Heading>
-                <Heading size="lg" as="h3">Heading LG (h3)</Heading>
-                <Heading size="md" as="h4">Heading MD (h4)</Heading>
-                <Heading size="sm" as="h5">Heading SM (h5)</Heading>
-                <Heading size="xs" as="h6">Heading XS (h6)</Heading>
+                <Heading size="3xl" as="h1">
+                  Heading 3XL (h1)
+                </Heading>
+                <Heading size="2xl" as="h2">
+                  Heading 2XL (h2)
+                </Heading>
+                <Heading size="xl" as="h2">
+                  Heading XL (h2)
+                </Heading>
+                <Heading size="lg" as="h3">
+                  Heading LG (h3)
+                </Heading>
+                <Heading size="md" as="h4">
+                  Heading MD (h4)
+                </Heading>
+                <Heading size="sm" as="h5">
+                  Heading SM (h5)
+                </Heading>
+                <Heading size="xs" as="h6">
+                  Heading XS (h6)
+                </Heading>
               </div>
             </div>
 
@@ -218,7 +228,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Heading as="h1" size="3xl">Page Title</Heading>
+              {`<Heading as="h1" size="3xl">Page Title</Heading>
 <Text size="lg" color="muted" weight="medium">
   Subtitle or description text
 </Text>`}
@@ -234,21 +244,27 @@ const ComponentShowcase = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card padding="sm">
-              <Text weight="semibold" className="mb-2">Small Padding</Text>
+              <Text weight="semibold" className="mb-2">
+                Small Padding
+              </Text>
               <Text size="sm" color="muted">
                 This card has small padding (p-4)
               </Text>
             </Card>
 
             <Card padding="md">
-              <Text weight="semibold" className="mb-2">Medium Padding</Text>
+              <Text weight="semibold" className="mb-2">
+                Medium Padding
+              </Text>
               <Text size="sm" color="muted">
                 This card has medium padding (p-6) - default
               </Text>
             </Card>
 
             <Card padding="lg">
-              <Text weight="semibold" className="mb-2">Large Padding</Text>
+              <Text weight="semibold" className="mb-2">
+                Large Padding
+              </Text>
               <Text size="sm" color="muted">
                 This card has large padding (p-8)
               </Text>
@@ -260,7 +276,9 @@ const ComponentShowcase = () => {
               Card with Hover Effect
             </Text>
             <Card hover className="max-w-sm">
-              <Text weight="semibold" className="mb-2">Hover over me!</Text>
+              <Text weight="semibold" className="mb-2">
+                Hover over me!
+              </Text>
               <Text size="sm" color="muted">
                 This card has a hover shadow effect
               </Text>
@@ -272,7 +290,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Card hover padding="lg">
+              {`<Card hover padding="lg">
   <Heading size="md">Card Title</Heading>
   <Text color="muted">Card content goes here</Text>
 </Card>`}
@@ -288,7 +306,8 @@ const ComponentShowcase = () => {
 
           <div className="space-y-4">
             <Text>
-              Containers provide responsive max-widths and padding. They're used to wrap page content.
+              Containers provide responsive max-widths and padding. They're used
+              to wrap page content.
             </Text>
 
             <div className="space-y-2">
@@ -309,7 +328,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Container maxWidth="xl">
+              {`<Container maxWidth="xl">
   <Heading>Page Content</Heading>
   <Text>Your content here...</Text>
 </Container>`}
@@ -325,14 +344,17 @@ const ComponentShowcase = () => {
 
           <div className="space-y-4">
             <Text>
-              Center component uses CSS Grid to center content horizontally and optionally vertically.
+              Center component uses CSS Grid to center content horizontally and
+              optionally vertically.
             </Text>
 
             <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 h-48">
               <Center fullScreen={false}>
                 <div className="text-center">
                   <Text weight="semibold">Centered Content</Text>
-                  <Text size="sm" color="muted">This is centered!</Text>
+                  <Text size="sm" color="muted">
+                    This is centered!
+                  </Text>
                 </div>
               </Center>
             </div>
@@ -343,7 +365,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`<Center fullScreen={true}>
+              {`<Center fullScreen={true}>
   <div>Centered content</div>
 </Center>`}
             </pre>
@@ -364,15 +386,21 @@ const ComponentShowcase = () => {
               <div className="flex items-center gap-8">
                 <div className="text-center">
                   <Spinner size="sm" />
-                  <Text size="sm" className="mt-2">Small</Text>
+                  <Text size="sm" className="mt-2">
+                    Small
+                  </Text>
                 </div>
                 <div className="text-center">
                   <Spinner size="md" />
-                  <Text size="sm" className="mt-2">Medium</Text>
+                  <Text size="sm" className="mt-2">
+                    Medium
+                  </Text>
                 </div>
                 <div className="text-center">
                   <Spinner size="lg" />
-                  <Text size="sm" className="mt-2">Large</Text>
+                  <Text size="sm" className="mt-2">
+                    Large
+                  </Text>
                 </div>
               </div>
             </div>
@@ -383,7 +411,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`{isLoading ? (
+              {`{isLoading ? (
   <Spinner size="lg" />
 ) : (
   <YourContent />
@@ -400,8 +428,8 @@ const ComponentShowcase = () => {
 
           <div className="space-y-4">
             <Text>
-              The theme toggle switches between light and dark modes. It's already in the navbar, 
-              but here's a standalone example:
+              The theme toggle switches between light and dark modes. It's
+              already in the navbar, but here's a standalone example:
             </Text>
 
             <div className="flex items-center gap-4">
@@ -415,7 +443,7 @@ const ComponentShowcase = () => {
               Usage:
             </Text>
             <pre className="text-xs text-gray-700 dark:text-gray-300 overflow-x-auto">
-{`import { ThemeToggle } from '../components';
+              {`import { ThemeToggle } from '../components';
 
 <ThemeToggle />`}
             </pre>
@@ -436,21 +464,17 @@ const ComponentShowcase = () => {
             <Heading size="lg" className="mb-4">
               Contact Form
             </Heading>
-            
+
             <div className="space-y-4">
-              <Input
-                label="Name"
-                placeholder="Enter your name"
-                required
-              />
-              
+              <Input label="Name" placeholder="Enter your name" required />
+
               <Input
                 label="Email"
                 type="email"
                 placeholder="email@example.com"
                 required
               />
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Message
@@ -461,7 +485,7 @@ const ComponentShowcase = () => {
                   placeholder="Your message..."
                 />
               </div>
-              
+
               <div className="flex gap-3">
                 <Button variant="primary">Send Message</Button>
                 <Button variant="outline">Cancel</Button>
@@ -469,11 +493,9 @@ const ComponentShowcase = () => {
             </div>
           </Card>
         </Card>
-
       </Container>
     </div>
   );
 };
 
 export default ComponentShowcase;
-

@@ -14,7 +14,7 @@ export default function Text({
     lg: "text-lg",
     xl: "text-xl",
   };
-  
+
   const colors = {
     default: "text-gray-900 dark:text-gray-100",
     muted: "text-gray-600 dark:text-gray-400",
@@ -23,16 +23,16 @@ export default function Text({
     danger: "text-red-600 dark:text-red-400",
     success: "text-green-600 dark:text-green-400",
   };
-  
+
   const weights = {
     normal: "font-normal",
     medium: "font-medium",
     semibold: "font-semibold",
     bold: "font-bold",
   };
-  
+
   const Component = as;
-  
+
   return (
     <Component
       className={`${sizes[size]} ${colors[color]} ${weights[weight]} ${className}`}
@@ -42,4 +42,3 @@ export default function Text({
     </Component>
   );
 }
-

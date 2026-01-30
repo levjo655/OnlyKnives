@@ -12,7 +12,7 @@ export default function Container({
     "2xl": "max-w-screen-2xl",
     full: "max-w-full",
   };
-  
+
   return (
     <div
       className={`w-full mx-auto px-4 sm:px-6 lg:px-8 ${maxWidths[maxWidth]} ${className}`}
@@ -22,4 +22,3 @@ export default function Container({
     </div>
   );
 }
-
