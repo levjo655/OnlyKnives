@@ -63,26 +63,71 @@ export default function Signup() {
   };
 
   return (
-    <Center>
-      <Card className="w-full max-w-md">
-        <Heading>Sign up</Heading>
+    <Center className="bg-gray-50 dark:bg-gray-900 px-4 min-h-screen">
+      <Card className="w-full max-w-md" padding="lg">
+        <div className="space-y-6">
+          {/* Header */}
+          <div className="text-center space-y-2">
+            <Heading as="h1" size="xl">
+              Create an Account
+            </Heading>
+            <Text color="muted" size="sm">
+              Sign up to get started
+            </Text>
+          </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input name="name" label="Name" onChange={handleChange} />
-          <Input name="email" label="Email" onChange={handleChange} />
-          <Input
-            name="password"
-            label="Password"
-            type="password"
-            onChange={handleChange}
-          />
+          {/* Signup Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              label="Name"
+              type="text"
+              name="name"
+              placeholder="Your full name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <Input
+              label="Email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Input
+              label="Password"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+            />
 
-          {errors.api && <Text color="danger">{errors.api}</Text>}
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className="w-full"
+              disabled={isLoading}
+            >
+              {isLoading ? "Creating account..." : "Sign Up"}
+            </Button>
+          </form>
 
-          <Button type="submit" disabled={isLoading}>
-            {isLoading ? "Creating account..." : "Sign up"}
-          </Button>
-        </form>
+          {/* Already have an account */}
+          <div className="text-center">
+            <Text color="muted" size="sm">
+              Already have an account?{" "}
+              <button
+                type="button"
+                className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                onClick={() => navigate("/login")}
+              >
+                Log in
+              </button>
+            </Text>
+          </div>
+        </div>
       </Card>
     </Center>
   );
