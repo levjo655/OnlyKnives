@@ -1,7 +1,9 @@
 import express from "express";
 import bcrypt from "bcrypt";
-const app = express();
+import "dotenv/config"; // if using ES modules
 import { auth } from "express-oauth2-jwt-bearer";
+
+const app = express();
 
 const port = process.env.PORT || 8080;
 
@@ -10,13 +12,9 @@ const jwtCheck = auth({
   issuerBaseURL: "https://dev-c75uake4disagurx.us.auth0.com/",
   tokenSigningAlg: "RS256",
 });
+console.log(process.env);
 
-// enforce on all endpoints
-app.use(jwtCheck);
-
-app.get("/authorized", function (req, res) {
-  res.send("Secured Resource");
-});
+// enforce on all endpoint
 
 app.listen(port);
 
