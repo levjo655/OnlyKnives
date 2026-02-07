@@ -1,21 +1,23 @@
 import express from "express";
-import cors from "cors";
-import userRouter from "./routes/users.js";
-
+import bcrypt from "bcrypt";
 const app = express();
+import { auth } from "express-oauth2-jwt-bearer";
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  }),
-);
+const port = process.env.PORT || 8080;
 
-app.use(express.json());
-
-app.use("/users", userRouter);
-
-const PORT = 23456;
-app.listen(PORT, () => {
-  console.log(`🚀 Express listening on port ${PORT}`);
+const jwtCheck = auth({
+  audience: "https://api.onlyknives.com/",
+  issuerBaseURL: "https://dev-c75uake4disagurx.us.auth0.com/",
+  tokenSigningAlg: "RS256",
 });
+
+// enforce on all endpoints
+app.use(jwtCheck);
+
+app.get("/authorized", function (req, res) {
+  res.send("Secured Resource");
+});
+
+app.listen(port);
+
+console.log("Running on port ", port);
