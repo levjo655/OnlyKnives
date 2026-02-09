@@ -11,7 +11,6 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = async (e) => {
@@ -24,14 +23,16 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
 
       if (!res.ok) {
         setErrors({ api: data.error });
-      } else {
-        console.log("Login successful:", data);
-        navigate("/"); // go to home
+        return;
       }
+
+      console.log("Login successful:", data);
+      navigate("/");
     } catch (err) {
       setErrors({ api: "Network error" });
     } finally {
