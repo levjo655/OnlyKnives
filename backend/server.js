@@ -1,21 +1,48 @@
 import express from "express";
-import bcrypt from "bcrypt";
-import "dotenv/config"; // if using ES modules
+import "dotenv/config";
+import cors from "cors";
 import { auth } from "express-oauth2-jwt-bearer";
 
-const app = express();
+import usersRouter from "./routes/users.js";
 
+const app = express();
 const port = process.env.PORT || 8080;
 
+// --------------------
+// Middleware
+// --------------------
+app.use(cors());
+app.use(express.json());
+
+// --------------------
+// Auth0 JWT middleware
+// --------------------
 const jwtCheck = auth({
-  audience: "https://api.onlyknives.com/",
-  issuerBaseURL: "https://dev-c75uake4disagurx.us.auth0.com/",
+  audience: process.env.AUTH0_AUDIENCE, // https://api.onlyknives.com/
+  issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}/`,
   tokenSigningAlg: "RS256",
 });
-console.log(process.env);
 
-// enforce on all endpoint
+// --------------------
+// Public routes
+// --------------------
+app.get("/", (req, res) => {
+  res.send("OnlyKnives API running");
+});
 
-app.listen(port);
+// --------------------
+// Protected routes
+// --------------------
+app.use("/users", usersRouter); // users.js decides what is protected
 
-console.log("Running on port ", port);
+// Example of fully protected route
+app.get("/protected", jwtCheck, (req, res) => {
+  res.json({
+    message: "You are authenticated",
+    user: req.auth.payload,
+  });
+});
+
+app.listen(port, () => {
+  console.log(`🚀 API running on port ${port}`);
+});
