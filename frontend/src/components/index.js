@@ -12,6 +12,7 @@ export {
   Spinner,
   Text,
   ThemeToggle,
+  KnifePost,
 } from "./core";
 
 // Layout components

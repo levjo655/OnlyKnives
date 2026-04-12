@@ -7,3 +7,4 @@ export { default as Input } from "./input";
 export { default as Spinner } from "./spinner";
 export { default as Text } from "./text";
 export { default as ThemeToggle } from "./theme-toggle";
+export { default as KnifePost } from "./KnifePost";

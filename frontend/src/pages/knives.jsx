@@ -1,27 +1,41 @@
 import React from "react";
-import { KnifeCard } from "../components";
+import { KnifePost } from "components";
+import demoKnife from "../images/demo_knife.jpg";
 
-const Knives = () => (
-  <div className="bg-bg min-h-screen text-primaryText flex flex-col">
-    {/* Page content */}
-    <div className="max-w-5xl mx-auto p-10 flex-grow">
-      {/* Filter bar */}
-      <div className="flex items-center gap-4 mb-10">
-        <span className="text-black text-sm">Filter ↓</span>
+const mockKnives = [
+  {
+    id: 1,
+    name: "Petty Suminagashi",
+    smith: "Eduardo Covre",
+    image: demoKnife,
+    likes: 120,
+  },
+  {
+    id: 2,
+    name: "Crimson Edge",
+    smith: "Aki Tanaka",
+    image: "/images/knife2.jpg",
+    likes: 89,
+  },
+  {
+    id: 3,
+    name: "Nordic Hunter",
+    smith: "Erik Lund",
+    image: "/images/knife3.jpg",
+    likes: 210,
+  },
+];
 
-        <div className="bg-white px-2 py-1 flex items-center gap-2 border border-gray-400">
-          <input className="outline-none text-sm text-black" placeholder="" />
-        </div>
-      </div>
-
-      {/* Knife grid */}
-      <div className="grid grid-cols-3 gap-16">
-        <KnifeCard name="knife name 1" />
-        <KnifeCard name="knife name 2" />
-        <KnifeCard name="knife name 3" />
+const Knives = () => {
+  return (
+    <div className="bg-bg min-h-screen text-primaryText">
+      <div className="max-w-2xl mx-auto py-10 space-y-10">
+        {mockKnives.map((knife) => (
+          <KnifePost key={knife.id} knife={knife} />
+        ))}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Knives;
