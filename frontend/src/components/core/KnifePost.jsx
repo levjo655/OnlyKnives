@@ -5,10 +5,10 @@ const KnifePost = ({ knife }) => {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-      {/* Smith header */}
+      {/* Header */}
       <div className="flex items-center justify-between p-4">
         <div>
-          <p className="font-semibold">{knife.smith}</p>
+          <p className="font-semibold">{knife.smith || "Unknown Smith"}</p>
           <p className="text-xs text-gray-500">Master Smith</p>
         </div>
 
@@ -19,24 +19,33 @@ const KnifePost = ({ knife }) => {
 
       {/* Image */}
       <img
-        src={knife.image}
-        alt={knife.name}
+        src={knife.image_url}
+        alt={knife.title}
         className="w-full h-[400px] object-cover"
       />
 
-      {/* Actions */}
-      <div className="p-4 space-y-2">
+      {/* Content */}
+      <div className="p-4 space-y-3">
+        {/* Title + Like */}
         <div className="flex justify-between items-center">
-          <h3 className="font-bold text-lg">{knife.name}</h3>
+          <h3 className="font-bold text-lg">{knife.title}</h3>
 
           <button
             onClick={() => setLiked(!liked)}
-            className={`text-sm ${liked ? "text-red-500" : "text-gray-500"}`}
+            className={`text-sm transition ${
+              liked ? "text-red-500" : "text-gray-500"
+            }`}
           >
-            ♥ {liked ? knife.likes + 1 : knife.likes}
+            ♥ {liked ? (knife.likes || 0) + 1 : knife.likes || 0}
           </button>
         </div>
 
+        {/* Description */}
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          {knife.description}
+        </p>
+
+        {/* Actions */}
         <div className="text-sm text-gray-500">View details • Save • Share</div>
       </div>
     </div>
