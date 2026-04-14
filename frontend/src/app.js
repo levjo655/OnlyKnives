@@ -8,6 +8,7 @@ import {
   ComponentShowcase,
   Login,
   Signup,
+  CreatePost,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 
@@ -22,6 +23,7 @@ const App = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/components" element={<ComponentShowcase />} />
+        <Route path="/create-post" element={<CreatePost />} />
       </Routes>
       <Footer />
     </BrowserRouter>

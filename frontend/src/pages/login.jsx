@@ -31,6 +31,16 @@ const Login = () => {
         return;
       }
 
+      localStorage.setItem("user", JSON.stringify(data));
+
+      console.log("Login successful:", data);
+      navigate("/");
+
+      if (!res.ok) {
+        setErrors({ api: data.error });
+        return;
+      }
+
       console.log("Login successful:", data);
       navigate("/");
     } catch (err) {
