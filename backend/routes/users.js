@@ -44,7 +44,7 @@ router.get("/public-health", async (req, res) => {
 
 // Register a new user
 router.post("/", async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role, avatar_url, bio } = req.body;
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: "All fields are required" });
@@ -54,18 +54,22 @@ router.post("/", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(
-      `INSERT INTO users (name, email, password, role)
-   VALUES ($1, $2, $3, $4)
-   RETURNING id, name, email, role, created_at`,
-      [name, email, hashedPassword, role || "member"],
+      `INSERT INTO users (name, email, password, role, avatar_url, bio)
+       VALUES ($1, $2, $3, $4, $5, $6)
+       RETURNING id, name, email, role, avatar_url, bio`,
+      [
+        name,
+        email,
+        hashedPassword,
+        role || "member",
+        avatar_url || null,
+        bio || null,
+      ],
     );
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    if (err.code === "23505") {
-      return res.status(409).json({ error: "Email already exists" });
-    }
-    console.error("Database error:", err.message, err.stack);
+    console.error(err);
     res.status(500).json({ error: "Server error" });
   }
 });
