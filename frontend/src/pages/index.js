@@ -11,3 +11,4 @@ export { default as Steels } from "./steels";
 export { default as KnifePage } from "./knife-page";
 export { default as ComponentShowcase } from "./component-showcase";
 export { default as CreatePost } from "./create-post";
+export { default as SmithProfile } from "./smith-profile";

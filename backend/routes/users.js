@@ -18,7 +18,7 @@ console.log(process.env);
 // ------------------------
 // PUBLIC ROUTES
 // ------------------------
-
+// Get smiths
 router.get("/smiths", async (req, res) => {
   try {
     const result = await pool.query(
@@ -123,6 +123,36 @@ router.get("/", checkJwt, requiredScopes("read:users"), async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// Get smith and knives
+
+router.get("/:id/profile", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const userResult = await pool.query(
+      "SELECT id, name, avatar_url, bio FROM users WHERE id = $1 AND role = 'smith'",
+      [id],
+    );
+
+    if (userResult.rows.length === 0) {
+      return res.status(404).json({ error: "Smith not found" });
+    }
+
+    const knivesResult = await pool.query(
+      "SELECT * FROM knife_posts WHERE user_id = $1 ORDER BY id DESC",
+      [id],
+    );
+
+    res.json({
+      smith: userResult.rows[0],
+      knives: knivesResult.rows,
+    });
+  } catch (err) {
+    console.error("PROFILE ERROR:", err);
     res.status(500).json({ error: "Server error" });
   }
 });

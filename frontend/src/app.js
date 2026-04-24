@@ -10,6 +10,7 @@ import {
   Signup,
   CreatePost,
   Smiths,
+  SmithProfile,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/signup" element={<Signup />} />
         <Route path="/components" element={<ComponentShowcase />} />
         <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/smith/:id" element={<SmithProfile />} />
       </Routes>
       <Footer />
     </BrowserRouter>
