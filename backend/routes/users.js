@@ -19,6 +19,18 @@ console.log(process.env);
 // PUBLIC ROUTES
 // ------------------------
 
+router.get("/smiths", async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT id, name, avatar_url, bio FROM users WHERE role = 'smith'",
+    );
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 // Health check (public, optional)
 router.get("/public-health", async (req, res) => {
   try {
@@ -32,7 +44,7 @@ router.get("/public-health", async (req, res) => {
 
 // Register a new user
 router.post("/", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: "All fields are required" });
@@ -42,10 +54,10 @@ router.post("/", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await pool.query(
-      `INSERT INTO users (name, email, password)
-       VALUES ($1, $2, $3)
-       RETURNING id, name, email, created_at`,
-      [name, email, hashedPassword],
+      `INSERT INTO users (name, email, password, role)
+   VALUES ($1, $2, $3, $4)
+   RETURNING id, name, email, role, created_at`,
+      [name, email, hashedPassword, role || "member"],
     );
 
     res.status(201).json(result.rows[0]);

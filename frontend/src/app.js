@@ -9,6 +9,7 @@ import {
   Login,
   Signup,
   CreatePost,
+  Smiths,
 } from "./pages";
 import { Navbar, Footer } from "./components";
 
@@ -19,6 +20,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/knives" element={<Knives />} />
+        <Route path="/smiths" element={<Smiths />} />
         <Route path="/smithsignup" element={<SmithSignup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
